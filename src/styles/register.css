@@ -1,0 +1,18 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: #fbfbfb;
+  height: 100vh;
+}
+.left__container {
+  width: 30%;
+  right: 0;
+  position: fixed;
+  overflow: hidden;
+}
+.right__container {
+  background-color: rgb(234, 248, 247);
+  width: 70%;
+  height: 100%;
+}

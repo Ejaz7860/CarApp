@@ -1,0 +1,33 @@
+@import 'color.css';
+.Header {
+    width: 100%;
+    height: 60px;
+    left: 0;
+    right: 0;
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    padding: 0 4rem;
+    display: flex;
+    background-color: var(--bgColor1);
+    /* color: #fff; */
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.ch{
+    font-size: 1rem;
+    padding: 6px;
+    font-weight: 600;
+    color: var(--text-color1);
+}
+
+.active{
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 6px;
+    color:  var(--linear2);
+    transform: scaleX(1.1);
+
+    /* background: linear-gradient(#7928ca, #ff0080); */
+}

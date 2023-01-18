@@ -1,9 +1,25 @@
-import React from 'react'
-
+import React from "react";
+import Home from "./pages/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NotFound from "./pages/NotFound";
+import UserManagement from "./pages/UserManagement";
+import CarServices from "./pages/CarServices";
+import Cars from "./pages/Cars";
 const App = () => {
   return (
-    <div>App</div>
-  )
-}
+    <>
+      <BrowserRouter>
+        <Home />
+        <Routes>
+          <Route path="/user/management" element={<UserManagement />} />
+          <Route path="/car/services" element={<CarServices />} />
+          <Route path="/car/cars" element={<Cars />} />
 
-export default App
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
+};
+
+export default App;

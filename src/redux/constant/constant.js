@@ -1,7 +1,11 @@
 // USER CONSTANT
 export const CREATE_USER="CREATE_USER";
 export const GET_USER="GET_USER";
+export const SET_USER="SET_USER";
 export const GET_USER_BY_ID="GET_USER_BY_ID";
+export const ON_USER_SUCCESS="ON_USER_SUCCESS";
+export const ON_USER_FAILED="ON_USER_FAILED";
+
 
 // CAR CONSTANT
 export const CREATE_CAR="CREATE_CAR";
