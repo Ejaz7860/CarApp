@@ -1,12 +1,15 @@
-import { GET_ALL_CAR, GET_ALL_CAR_BY_ID } from "../constant/constant";
+import {
+  ON_CAR_FAILED,
+  SET_CAR_USER,
+} from "../constant/constant";
 
 export const carFeature = (data = [], action) => {
   switch (action.type) {
-    case GET_ALL_CAR:
-      return [action.data, ...data];
+    case SET_CAR_USER:
+      return [...action.data];
 
-    case GET_ALL_CAR_BY_ID:
-      return data;
+    case ON_CAR_FAILED:
+      return { message: action.message };
     default:
       return data;
   }

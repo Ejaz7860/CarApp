@@ -1,17 +1,24 @@
 // USER CONSTANT
-export const CREATE_USER="CREATE_USER";
-export const GET_USER="GET_USER";
-export const SET_USER="SET_USER";
-export const GET_USER_BY_ID="GET_USER_BY_ID";
-export const ON_USER_SUCCESS="ON_USER_SUCCESS";
-export const ON_USER_FAILED="ON_USER_FAILED";
-
+export const CREATE_USER = "CREATE_USER";
+export const GET_USER = "GET_USER";
+export const SET_USER = "SET_USER";
+export const SET_USER_BY_ID = "SET_USER_BY_ID";
+export const GET_USER_BY_ID = "GET_USER_BY_ID";
+export const ON_USER_SUCCESS = "ON_USER_SUCCESS";
+export const ON_USER_FAILED = "ON_USER_FAILED";
 
 // CAR CONSTANT
-export const CREATE_CAR="CREATE_CAR";
-export const GET_ALL_CAR="GET_ALL_CAR";
-export const GET_ALL_CAR_BY_ID="GET_ALL_CAR_BY_ID";
+export const CREATE_CAR = "CREATE_CAR";
+export const GET_ALL_CAR = "GET_ALL_CAR";
+export const SET_CAR_USER = "SET_CAR_USER";
+export const SET_CAR_BY_ID = "SET_CAR_BY_ID";
 
-// CAR SERVICES CONSTANT
-export const CREATE_CAR_SERVICES="CREATE_CAR_SERVICES";
-export const GET_ALL_CAR_SERVICES_LIST="GET_ALL_CAR_SERVICES_LIST";
+export const GET_ALL_CAR_BY_ID = "GET_ALL_CAR_BY_ID";
+export const ON_CAR_SUCCESS = "ON_CAR_SUCCESS";
+export const ON_CAR_FAILED = "ON_CAR_FAILED";
+
+//SERVICES
+export const CREATE_CAR_SERVICES = "CREATE_CAR_SERVICES";
+export const GET_ALL_CAR_SERVICES_LIST = "GET_ALL_CAR_SERVICES_LIST";
+export const ON_SERVICES_SUCCESS = "ON_SERVICES_SUCCESS";
+export const ON_SERVICES_FAILED = "ON_SERVICES_FAILED";

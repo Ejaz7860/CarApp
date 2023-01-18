@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState} from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { createUser } from "../redux/actions/user.action";
 import { ToastContainer, toast } from "react-toastify";
 import {
@@ -21,14 +21,17 @@ const Formc = () => {
   const [name, setName] = useState("");
   const [phone_no, setPhone] = useState("");
   const dispatch = useDispatch();
+  const selector = useSelector((state) => state.userSuccess);
 
   const isError = name === "" && phone_no === "";
   const collectData = (e) => {
     e.preventDefault();
-    if (name && phone_no) {
+    if (name && phone_no.length !== 10) {
+      toast.warning("Name and Phone no required!");
+    } else {
       dispatch(createUser({ name, phone_no }));
       setTimeout(() => {
-        toast("user registered");
+        toast(`${selector.message}`);
       }, [500]);
     }
   };

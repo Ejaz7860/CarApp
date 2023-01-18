@@ -12,7 +12,31 @@
   overflow: hidden;
 }
 .right__container {
-  background-color: rgb(234, 248, 247);
+  background-color: rgb(254, 255, 255);
   width: 70%;
   height: 100%;
+}
+.m {
+  height: auto;
+}
+.m ul {
+  width: 40%;
+  padding: 20px;
+  border-radius: 3px;
+  box-shadow: rgba(149, 167, 185, 0.2) 0px 8px 24px;
+  background-color: var(#fbfbfb);
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.m ul > li {
+  list-style: none;
+  margin-top: 4px;
+  font-weight: 700;
+  text-transform: capitalize;
+  font-size: 1rem;
+  text-decoration: none;
+  color: #444;
 }

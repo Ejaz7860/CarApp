@@ -5,6 +5,7 @@ import NotFound from "./pages/NotFound";
 import UserManagement from "./pages/UserManagement";
 import CarServices from "./pages/CarServices";
 import Cars from "./pages/Cars";
+
 const App = () => {
   return (
     <>
@@ -13,8 +14,7 @@ const App = () => {
         <Routes>
           <Route path="/user/management" element={<UserManagement />} />
           <Route path="/car/services" element={<CarServices />} />
-          <Route path="/car/cars" element={<Cars />} />
-
+          <Route path="/user/cars/:id" element={<Cars />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

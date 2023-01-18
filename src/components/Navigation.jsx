@@ -16,12 +16,6 @@ const Navigation = () => {
           className={({ isActive }) => (isActive ? "active" : "ch")}
           to="/car/services"
         >
-          Services
-        </NavLink>
-        <NavLink
-          className={({ isActive }) => (isActive ? "active" : "ch")}
-          to="/car/cars"
-        >
           Car
         </NavLink>
       </HStack>
