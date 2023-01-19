@@ -1,6 +1,7 @@
 .container {
   width: 100%;
   display: flex;
+  margin-top: 60px;
   flex-direction: row;
   background-color: #fbfbfb;
   height: 100vh;
@@ -13,14 +14,33 @@
 }
 .right__container {
   background-color: rgb(254, 255, 255);
-  width: 70%;
+  width: 90%;
   height: 100%;
 }
 .m {
   height: auto;
 }
+
+.m .car__user {
+  position: fixed;
+  left: 0;
+  width: 20%;
+  left: 1px;
+  padding: 10px;
+  border-radius: 3px;
+  box-shadow: rgba(149, 167, 185, 0.2) 0px 8px 24px;
+  background-color: var(--linear2);
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.m .car__user > li {
+  color: #fff;
+}
 .m ul {
   width: 40%;
+  position: relative;
   padding: 20px;
   border-radius: 3px;
   box-shadow: rgba(149, 167, 185, 0.2) 0px 8px 24px;
@@ -33,10 +53,26 @@
 
 .m ul > li {
   list-style: none;
+
   margin-top: 4px;
   font-weight: 700;
   text-transform: capitalize;
   font-size: 1rem;
   text-decoration: none;
   color: #444;
+}
+.oval {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.m ul > .car__services {
+  background-color: var(--linear2);
+  color: #fff;
+  text-align: center;
+  padding: 3px;
+  width: 100px;
+  right: 4px;
+  position: absolute;
+  border-radius: 50px;
 }

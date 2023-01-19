@@ -1,12 +1,28 @@
 import { put, takeLatest, fork, call } from "redux-saga/effects";
-import { getAllUserCarById } from "./api.saga";
-import { GET_ALL_CAR, SET_CAR_USER, ON_CAR_FAILED } from "../constant/constant";
+import { addCarInfo, getCarById } from "./api.saga";
+import {
+  ON_CAR_FAILED,
+  CREATE_CAR,
+  GET_ALL_CAR_BY_ID,
+  SET_CAR_BY_ID
+} from "../constant/constant";
 
+// CAR DETAILS FOR USER
 export function* onCarDetails(action) {
   try {
-    const result = yield call(getAllUserCarById, action.data);
+    const result = yield call(addCarInfo, action.data);
     if (result.status === 200) {
-      yield put({ type: SET_CAR_USER, data: result.data });
+    }
+  } catch (error) {
+    yield put({ type: ON_CAR_FAILED, message: error.message });
+  }
+}
+// GET CAR DETAILS BY CAR ID
+export function* getCarByIdAsync(action) {
+  try {
+    const result =  yield call(getCarById, action.data);
+    if(result.status === 200){
+      yield put({ type:SET_CAR_BY_ID, data:result.data.Car })
     }
   } catch (error) {
     yield put({ type: ON_CAR_FAILED, message: error.message });
@@ -14,7 +30,11 @@ export function* onCarDetails(action) {
 }
 
 export function* getCarForUser() {
-  yield takeLatest(GET_ALL_CAR, onCarDetails);
+  yield takeLatest(CREATE_CAR, onCarDetails);
 }
-const carSaga = [fork(getCarForUser)];
+
+export function* CarById() {
+  yield takeLatest(GET_ALL_CAR_BY_ID, getCarByIdAsync);
+}
+const carSaga = [fork(getCarForUser), fork(CarById)];
 export default carSaga;

@@ -12,6 +12,7 @@ export const createCar = (data) => {
 };
 
 export const getCarbyid = (data) => {
+  console.log(data)
   return {
     type: GET_ALL_CAR_BY_ID,
     data,
@@ -19,7 +20,6 @@ export const getCarbyid = (data) => {
 };
 
 export const getAllCarDetails = (data) => {
-  console.log(data)
   return {
     type: GET_ALL_CAR,
     data

@@ -29,7 +29,6 @@ export function* onLoaderUsersAsync() {
     yield put({ type: ON_USER_FAILED, data: "Something went wrong here" });
   }
 }
-
 // GET USER BY ID WITH CAR DETAILS
 export function* getLoadUerDetailsAsync(action) {
   try {
@@ -41,6 +40,7 @@ export function* getLoadUerDetailsAsync(action) {
     yield put({ type: ON_USER_FAILED, data: "Something went wrong here" });
   }
 }
+// CREATE USER
 export function* onCreateUserAsync(action) {
   try {
     yield call(postUser, action.data);

@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createUser } from "../redux/actions/user.action";
 import { ToastContainer, toast } from "react-toastify";
@@ -26,13 +26,13 @@ const Formc = () => {
   const isError = name === "" && phone_no === "";
   const collectData = (e) => {
     e.preventDefault();
-    if (name && phone_no.length !== 10) {
-      toast.warning("Name and Phone no required!");
-    } else {
+    if (name && phone_no.length) {
       dispatch(createUser({ name, phone_no }));
       setTimeout(() => {
         toast(`${selector.message}`);
       }, [500]);
+    } else {
+      toast.warning("Name and Phone no required!");
     }
   };
 
@@ -42,12 +42,13 @@ const Formc = () => {
       <div className="left__container">
         <Box
           margin={"auto"}
+          position={"fixed"}
           boxShadow="2xl"
           w={{ base: "450px", md: "400px", sm: "400px" }}
           p={{ sm: "4" }}
           mt={2}
           h={"1000"}
-          backgroundColor={"white"}
+          backgroundColor={"whiteAlpha.100"}
         >
           <Heading
             textAlign={"center"}

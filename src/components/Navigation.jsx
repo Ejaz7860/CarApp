@@ -8,15 +8,15 @@ const Navigation = () => {
       <HStack>
         <NavLink
           className={({ isActive }) => (isActive ? "active" : "ch")}
-          to="/user/management"
+          to="/car/services"
         >
-          User
+          Our Services
         </NavLink>
         <NavLink
           className={({ isActive }) => (isActive ? "active" : "ch")}
-          to="/car/services"
+          to="/user/management"
         >
-          Car
+          User
         </NavLink>
       </HStack>
     </>
