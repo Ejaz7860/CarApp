@@ -11,7 +11,6 @@ export const createService = (data) => {
 };
 
 export const getAllServicesDetails = (data) => {
-  console.log(data)
   return {
     type: GET_ALL_CAR_SERVICES_LIST,
     data

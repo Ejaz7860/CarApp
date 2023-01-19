@@ -16,9 +16,10 @@ export const servicesFeature = (data = [], action) => {
 export const serviceRequest = (data = [], action) => {
   switch (action.type) {
     case ON_SERVICES_SUCCESS:
-      return { message: action.data };
+      console.log(action.message)
+      return { message: action.message };
     case ON_SERVICES_FAILED:
-      return { message: action.data };
+      return { message: action.message };
     default:
       return data;
   }

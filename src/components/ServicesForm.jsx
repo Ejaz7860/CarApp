@@ -14,7 +14,7 @@ import {
   FormErrorMessage,
   Select,
 } from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 const ServicesForm = ({ id }) => {
   const [services, setServices] = useState({
     carid: id,
@@ -23,16 +23,21 @@ const ServicesForm = ({ id }) => {
   });
 
   const dispatch = useDispatch();
+  const statusMessage = useSelector((state) => state.serviceRequest);
   const isError = services.servicing_date === "" && services.status === "";
 
   const collectData = (e) => {
     e.preventDefault();
     if (services.servicing_date && services.status) {
       dispatch(createService(services));
+      setTimeout(() => {
+        toast(statusMessage.message);
+      }, [500]);
     } else {
-      toast.warning("Details required!");
+      toast.warning(statusMessage.message);
     }
   };
+
   return (
     <div>
       <ToastContainer />

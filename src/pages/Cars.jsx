@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserbyid } from "../redux/actions/user.action";
 import FormCar from "../components/FormCar";
 import "../styles/register.css";
+import Card from "../components/Card";
 import { IoArrowBackOutline } from "react-icons/io5";
 
 const Cars = () => {
@@ -13,8 +14,6 @@ const Cars = () => {
   const selector = useSelector((state) => state.userById);
   const { state } = useLocation();
   const navigate = useNavigate();
-
-  console.log(selector);
   useEffect(() => {
     dispatch(getUserbyid(id));
   }, [dispatch, id]);
@@ -45,10 +44,7 @@ const Cars = () => {
      
           </div>
           <div style={{ marginTop: "24px" }} className="m">
-            <ul className="car__user">
-              <li>User Name - {state.name}</li>
-              <li>Mobile - {state.phone_no}</li>
-            </ul>
+            <Card Username={state.name} phone_no={state.phone_no} />
           </div>
 
           <div style={{ marginTop: "30px" }} className="m">
@@ -62,6 +58,7 @@ const Cars = () => {
                           <Link
                             className="car__services"
                             to={`/car/services/${data.id}`}
+                            state={{ name: data.model,color:data.color,purchase_date:data.purchase_date }}
                           >
                             {" "}
                             <Text fontSize="xs">check services</Text>

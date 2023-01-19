@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createCar } from "../redux/actions/car.action";
 import { ToastContainer, toast } from "react-toastify";
 import {
@@ -26,7 +26,7 @@ const FormCar = ({ ownerid }) => {
   });
 
   const dispatch = useDispatch();
-  //   const selector = useSelector((state) => state.userSuccess);
+  const selector = useSelector((state) => state.onCarRequest);
 
   const isError =
     carData.model === "" &&
@@ -36,11 +36,13 @@ const FormCar = ({ ownerid }) => {
     e.preventDefault();
     if (carData.model && carData.color && carData.purchase_date) {
       dispatch(createCar(carData));
+      setTimeout(() => {
+        toast(selector.message);
+      }, [500]);
     } else {
-      toast.warning("Car Details required!");
+      toast.warning(selector.message);
     }
   };
-
   return (
     <div>
       <ToastContainer />

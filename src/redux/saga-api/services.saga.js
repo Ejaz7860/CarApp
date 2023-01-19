@@ -11,9 +11,9 @@ import {
 // CREATE SERVICING FOR CAR
 export function* onCreateServiceAsync(action) {
   try {
-    console.log(action.data);
-    const result = yield call(createServices, {"carid":action.data});
+    const result = yield call(createServices,action.data);
     if (result.status === 200) {
+      console.log('done')
       yield put({ type: ON_SERVICES_SUCCESS, message: "Success" });
     }
   } catch (error) {

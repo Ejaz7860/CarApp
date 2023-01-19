@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createUser } from "../redux/actions/user.action";
 import { ToastContainer, toast } from "react-toastify";

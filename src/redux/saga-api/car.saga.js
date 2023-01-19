@@ -4,7 +4,8 @@ import {
   ON_CAR_FAILED,
   CREATE_CAR,
   GET_ALL_CAR_BY_ID,
-  SET_CAR_BY_ID
+  SET_CAR_BY_ID,
+  ON_CAR_SUCCESS,
 } from "../constant/constant";
 
 // CAR DETAILS FOR USER
@@ -12,17 +13,18 @@ export function* onCarDetails(action) {
   try {
     const result = yield call(addCarInfo, action.data);
     if (result.status === 200) {
+      yield put({ type: ON_CAR_SUCCESS, message: "Success" });
     }
   } catch (error) {
-    yield put({ type: ON_CAR_FAILED, message: error.message });
+    yield put({ type: ON_CAR_FAILED, message: "Failed" });
   }
 }
 // GET CAR DETAILS BY CAR ID
 export function* getCarByIdAsync(action) {
   try {
-    const result =  yield call(getCarById, action.data);
-    if(result.status === 200){
-      yield put({ type:SET_CAR_BY_ID, data:result.data.Car })
+    const result = yield call(getCarById, action.data);
+    if (result.status === 200) {
+      yield put({ type: SET_CAR_BY_ID, data: result.data.Car });
     }
   } catch (error) {
     yield put({ type: ON_CAR_FAILED, message: error.message });
