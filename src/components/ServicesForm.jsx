@@ -95,7 +95,7 @@ const ServicesForm = ({ id }) => {
                 <SimpleGrid columns={{ md: "1", sm: "1" }} spacing={1}>
                   <Box>
                     <FormLabel fontWeight={{ sm: "black" }}>
-                      Purchase Date
+                      Servicing Date
                     </FormLabel>
                     <Input
                       type="date"
