@@ -5,9 +5,7 @@ import ServicesForm from "../components/ServicesForm";
 import { useDispatch, useSelector } from "react-redux";
 import { getCarbyid } from "../redux/actions/car.action.js";
 import Card from "../components/Card";
-import { Heading } from "@chakra-ui/react";
-import { IoArrowBackOutline } from "react-icons/io5";
-
+import { Heading, Button } from "@chakra-ui/react";
 
 const CarServices = () => {
   const dispatch = useDispatch();
@@ -24,24 +22,18 @@ const CarServices = () => {
     <div className="container">
       <ServicesForm id={id} />
       <div className="right__container">
-        <div
-          style={{
-            fontSize: "20px",
-            position: "fixed",
-            marginLeft: "4px",
-            display: "flex",
-            alignItems: "center",
-            cursor: "pointer",
-            width: "60px",
-            justifyContent: "center",
-            marginTop: "5px",
-            borderRadius: "4px",
-          }}
+        <Button
+          onClick={() => navigate(-1)}
+          colorScheme="black"
+          variant="outline"
+          ml={3}
+          width='8%'
+          mt={1}
+          position={"fixed"}
         >
-          {" "}
-          <IoArrowBackOutline onClick={() => navigate(-1)} />
-        </div>
-        <div style={{ marginTop: "24px" }} className="m">
+          Back
+        </Button>
+        <div style={{ marginTop: "30px" }} className="m">
           <Card
             car={state.name}
             color={state.color}
@@ -52,11 +44,19 @@ const CarServices = () => {
           {selector.length ? (
             selector.map((data) => {
               return data.Servicing.length !== 0 ? (
-                data.Servicing.map((data, index) => {
+                data.Servicing.reverse().map((data, index) => {
                   return (
                     <div key={index}>
                       <ul>
-                     { data.status === "finished" ?<li style={{color:"green"}}>Status- {data.status}</li> : <li style={{color:"red"}}>Status- {data.status}</li> }
+                        {data.status === "finished" ? (
+                          <li style={{ color: "green" }}>
+                            Status- {data.status}
+                          </li>
+                        ) : (
+                          <li style={{ color: "red" }}>
+                            Status- {data.status}
+                          </li>
+                        )}
                         <li>Servicing Date - {data.servicing_date} </li>
                       </ul>
                     </div>

@@ -1,19 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Formc from "./Formc";
 import "../styles/register.css";
+import { Text } from "@chakra-ui/react";
 import "react-toastify/dist/ReactToastify.css";
 import { getUserDetails } from "../redux/actions/user.action";
 import { useDispatch, useSelector } from "react-redux";
-import { Oval } from "react-loader-spinner";
+import Card from "./Card";
 const UserForm = () => {
   const selector = useSelector((state) => state.userFeature);
-  const [loader, setLoader] = useState(true);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUserDetails());
-    setLoader(false);
   }, [dispatch]);
 
   return (
@@ -21,42 +20,33 @@ const UserForm = () => {
       <div className="container">
         {/* FORM */}
         <Formc />
+        {/* CARD */}
         {/* ACCORDIAN FOR USER AND CAR DETAILS */}
         <div className="right__container">
-          {loader ? (
-            <div className="oval">
-              <Oval
-                height={80}
-                width={80}
-                color="#4fa94d"
-                wrapperStyle={{}}
-                wrapperClass=""
-                visible={true}
-                ariaLabel="oval-loading"
-                secondaryColor="#4fa94d"
-                strokeWidth={2}
-                strokeWidthSecondary={2}
-              />
-            </div>
-          ) : (
-            <div className="m">
-              { selector.map((data, index) => {
-                    return (
-                      <div key={index}>
-                        {" "}
-                        <Link to={`/user/cars/${data.id}`} state={{ name: data.name,phone_no:data.phone_no }}>
-                          <ul>
-                            <li>{data.id} User Details</li>
-                            <li>Name - {data.name}</li>
-                            <li>Mobile - {data.phone_no}</li>
-                          </ul>
-                        </Link>
-                      </div>
-                    );
-                  })
-               }{" "}
-            </div>
-          )}
+          <div style={{ marginTop: "24px" }} className="m">
+            <Card des="Welcome to user" user="Check car for user" />
+          </div>
+          <div className="m">
+            {selector.reverse().map((data, index) => {
+              return (
+                <div key={index}>
+                  {" "}
+                  <ul>
+                    <Link
+                      className="car__services"
+                      to={`/user/cars/${data.id}`}
+                      state={{ name: data.name, phone_no: data.phone_no }}
+                    >
+                      <Text fontSize="xs">check car</Text>
+                    </Link>
+                    <li>S.NO - {data.id}</li>
+                    <li>Name - {data.name}</li>
+                    <li>Mobile - {data.phone_no}</li>
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </>

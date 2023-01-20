@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import { Heading, Text } from "@chakra-ui/react";
+import { Heading, Text, Button } from "@chakra-ui/react";
 import { useParams, useLocation, Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserbyid } from "../redux/actions/user.action";
 import FormCar from "../components/FormCar";
 import "../styles/register.css";
 import Card from "../components/Card";
-import { IoArrowBackOutline } from "react-icons/io5";
+
 
 const Cars = () => {
   const { id } = useParams();
@@ -23,27 +23,19 @@ const Cars = () => {
       <div className="container">
         <FormCar ownerid={id} />
         <div className="right__container">
-          <div  style={{
-                fontSize: "20px",
-                position: "fixed",
-                marginLeft:"4px",
-                display:"flex",
-                alignItems:"center",
-                cursor:"pointer",
-                width:"60px",
-                justifyContent:"center",
-                marginTop:"5px",
-                borderRadius:"4px"
-                
-              }}>
-            {" "}
-            <IoArrowBackOutline
-              onClick={() => navigate(-1)}
-             
-            />
-     
-          </div>
-          <div style={{ marginTop: "24px" }} className="m">
+          <Button
+            onClick={() => navigate(-1)}
+            colorScheme="black"
+            variant="outline"
+            width='7%'
+            ml={3}
+            mt={1}
+            position={"fixed"}
+            borderRadius={5}
+          >
+            Back
+          </Button>
+          <div style={{ marginTop: "30px" }} className="m">
             <Card Username={state.name} phone_no={state.phone_no} />
           </div>
 
@@ -51,14 +43,18 @@ const Cars = () => {
             {selector.length ? (
               selector.map((data) => {
                 return data.Cars.length !== 0 ? (
-                  data.Cars.map((data, index) => {
+                  data.Cars.reverse().map((data, index) => {
                     return (
                       <div key={index}>
                         <ul>
                           <Link
                             className="car__services"
                             to={`/car/services/${data.id}`}
-                            state={{ name: data.model,color:data.color,purchase_date:data.purchase_date }}
+                            state={{
+                              name: data.model,
+                              color: data.color,
+                              purchase_date: data.purchase_date,
+                            }}
                           >
                             {" "}
                             <Text fontSize="xs">check services</Text>

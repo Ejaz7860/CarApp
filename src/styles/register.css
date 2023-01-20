@@ -1,3 +1,4 @@
+@import 'color.css';
 .container {
   width: 100%;
   display: flex;
@@ -25,12 +26,12 @@
   position: fixed;
   left: 0;
   width: 20%;
-  left: 1px;
+  left: 10px;
   padding: 10px;
   border-radius: 3px;
   box-shadow: rgba(149, 167, 185, 0.2) 0px 8px 24px;
   background-color: var(--linear2);
-  margin: 10px auto;
+  margin: 17px auto;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -53,7 +54,6 @@
 
 .m ul > li {
   list-style: none;
-
   margin-top: 4px;
   font-weight: 700;
   text-transform: capitalize;
@@ -67,7 +67,7 @@
   justify-content: center;
 }
 .m ul > .car__services {
-  background-color: var(--linear2);
+  background-image: linear-gradient(to left,#ff0080,#7928ca); 
   color: #fff;
   text-align: center;
   padding: 3px;
@@ -75,4 +75,11 @@
   right: 4px;
   position: absolute;
   border-radius: 50px;
+}
+.hero_box {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }

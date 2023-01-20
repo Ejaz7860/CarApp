@@ -39,6 +39,9 @@ const FormCar = ({ ownerid }) => {
       setTimeout(() => {
         toast(selector.message);
       }, [500]);
+      setTimeout(() => {
+        window.location.reload();
+      }, [1000]);
     } else {
       toast.warning(selector.message);
     }
