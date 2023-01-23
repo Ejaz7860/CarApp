@@ -61,7 +61,7 @@
   text-decoration: none;
   color: #444;
 }
-.oval {
+.loading__circle {
   display: flex;
   align-items: center;
   justify-content: center;
